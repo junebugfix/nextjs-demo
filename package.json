@@ -1,14 +1,26 @@
 {
-  "name": "spa-test",
+  "name": "hello-next",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "@azure/cosmos": "^3.4.0",
+    "next": "^9.1.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.5",
+    "@types/react": "^16.9.11",
+    "typescript": "^3.6.4"
   }
 }
