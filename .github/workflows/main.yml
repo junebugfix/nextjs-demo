@@ -24,7 +24,7 @@ jobs:
     # output secrets to config file
     - run: "echo \"const config = { endpoint: \"${{ secrets.COSMOS_ENDPOINT }}\", key: \"${{ secrets.COSMOS_KEY }}\", database: \"${{ secrets.COSMOS_DATABASE }}\", container: \"${{ secrets.COSMOS_CONTAINER }}\" };\nexport default config;\" > config.ts"
 
-    -run: cat config.ts
+    - run: cat config.ts
 
     - name: 'npm install and build'
       run: |
