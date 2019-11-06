@@ -2,6 +2,12 @@ on: [push]
 
 name: Deploy to Azure App Service
 
+# env:
+#   COSMOS_ENDPOINT: ${{ secrets.COSMOS_ENDPOINT }}
+#   COSMOS_KEY: ${{ secrets.COSMOS_KEY }}
+#   COSMOS_DATABASE: ${{ secrets.COSMOS_DATABASE }}
+#   COSMOS_CONTAINER: ${{ secrets.COSMOS_CONTAINER }}
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -16,7 +22,9 @@ jobs:
         node-version: '10.x'
     
     # output secrets to config file
-    - run: "echo \"const dbconfig = { endpoint: \"${{ secrets.COSMOS_ENDPOINT }}\", key: \"${{ secrets.COSMOS_KEY }}\", database: \"${{ secrets.COSMOS_DATABASE }}\", container: \"${{ secrets.COSMOS_CONTAINER }}\" };\nexport default dbconfig;\" > config.ts"
+    - run: "echo \"const config = { endpoint: \"${{ secrets.COSMOS_ENDPOINT }}\", key: \"${{ secrets.COSMOS_KEY }}\", database: \"${{ secrets.COSMOS_DATABASE }}\", container: \"${{ secrets.COSMOS_CONTAINER }}\" };\nexport default config;\" > config.ts"
+
+    -run: cat config.ts
 
     - name: 'npm install and build'
       run: |
