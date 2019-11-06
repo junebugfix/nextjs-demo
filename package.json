@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next",
-    "build": "npx next build",
-    "start": "npx next start -p process.env.PORT"
+    "build": "next build",
+    "start": "npm install && npm run build && next start -p process.env.PORT"
   },
   "keywords": [],
   "author": "",
