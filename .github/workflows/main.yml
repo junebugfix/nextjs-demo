@@ -27,7 +27,7 @@ jobs:
     # deploy web app using Azure credentials
     - uses: azure/webapps-deploy@v1
       with:
-        app-name: 'hank-spa-test1'
+        app-name: 'hank-spa-test-win2'
 
     # Azure logout 
     - name: logout
