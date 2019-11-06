@@ -1,4 +1,4 @@
-import config from "../config";
+import config from "../dbconfig";
 const CosmosClient = require('@azure/cosmos').CosmosClient;
 
 interface Props {
@@ -7,6 +7,7 @@ interface Props {
 const Home = (props: Props) => <h1>Hello {props.name}! </h1>;
 
 Home.getInitialProps = async function() {
+    console.log(config)
     const {endpoint, key, database, container } = config;
 
     if(endpoint) {
