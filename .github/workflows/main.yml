@@ -15,13 +15,14 @@ jobs:
       with:
         node-version: '10.x'
     
+    # output secrets to config file
+    - run: "echo \"const dbconfig = { endpoint: \"${{ secrets.COSMOS_ENDPOINT }}\", key: \"${{ secrets.COSMOS_KEY }}\", database: \"${{ secrets.COSMOS_DATABASE }}\", container: \"${{ secrets.COSMOS_CONTAINER }}\" };\nexport default dbconfig;\" > config.ts"
+
     - name: 'npm install and build'
       run: |
         npm install
         npm run build --if-present
     
-    - run: "echo \"const dbconfig = { endpoint: \"${{ secrets.COSMOS_ENDPOINT }}\", key: \"${{ secrets.COSMOS_KEY }}\", database: \"${{ secrets.COSMOS_DATABASE }}\", container: \"${{ secrets.COSMOS_CONTAINER }}\" };\nexport default dbconfig;\" > config.ts"
-
     - uses: azure/webapps-deploy@v1
       with:
         app-name: 'hank-spa-test-win2'
