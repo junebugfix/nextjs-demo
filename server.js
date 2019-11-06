@@ -1,7 +1,32 @@
-const express = require('express');
-const app = express();
-const port = 8080;
+const express = require("express");
+// const next = require("next");
 
-app.get('/', (req, res) => res.send('hello world'));
+const dev = process.env.NODE_ENV !== "production";
+// const app = next({ dev });
+// const handle = app.getRequestHandler();
+const port = process.env.PORT || 3000;
 
-app.listen(port, () => console.log(`listening on port ${port}!`));
+// app
+//   .prepare()
+//   .then(() => {
+//     const server = express();
+
+//     server.get("*", (req, res) => {
+//       return handle(req, res);
+//     });
+
+//     server.listen(port, err => {
+//       if (err) throw err;
+//       console.log(`Ready on port ${port}`);
+//     });
+//   })
+//   .catch(ex => {
+//     console.error(ex.stack);
+//     process.exit(1);
+//   });
+
+const app = express()
+
+app.get('/', (req, res) => res.send('Hello World!'))
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
