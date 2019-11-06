@@ -12,6 +12,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "10.16.3",
+    "npm": "6.9.0"
+  },
   "dependencies": {
     "@azure/cosmos": "^3.4.0",
     "next": "^9.1.2",
