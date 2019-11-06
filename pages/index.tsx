@@ -31,4 +31,8 @@ Home.getInitialProps = async function() {
     return { name: 'Unknown'};
 }
 
+<<<<<<< HEAD
 export default Home;
+=======
+export default Home;
+>>>>>>> 433978fcf8ebc3d0cc6dbe97a6d498448dd7d9b9
