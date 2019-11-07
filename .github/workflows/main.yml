@@ -22,10 +22,7 @@ jobs:
         node-version: '10.x'
     
     # output secrets to config file
-    #- run: "echo \"const config = { endpoint: \"${{ secrets.COSMOS_ENDPOINT }}\", key: \"${{ secrets.COSMOS_KEY }}\", database: \"${{ secrets.COSMOS_DATABASE }}\", container: \"${{ secrets.COSMOS_CONTAINER }}\" };\nexport default config;\" > config.ts"
-    - run: "echo \"const config = { endpoint: \"https://spa-test.documents.azure.com:443/\", key: \"mvTMeUYvHREnOR5NOLuvUtTH5PVE2ugKHA3Atj59i5yiX1FOzGNKbE5TTO5Ly9zEdIJ501KBXBM8rDyPCJh60Q==\", database: \"spa-test\", container: \"spa-test\" };\nexport default config;\" > config.ts"
-
-    - run: cat config.ts
+    # - run: "echo \"const config = { endpoint: \"https://spa-test.documents.azure.com:443/\", key: \"mvTMeUYvHREnOR5NOLuvUtTH5PVE2ugKHA3Atj59i5yiX1FOzGNKbE5TTO5Ly9zEdIJ501KBXBM8rDyPCJh60Q==\", database: \"spa-test\", container: \"spa-test\" };\nexport default config;\" > config.ts"
 
     - name: 'npm install and build'
       run: |
