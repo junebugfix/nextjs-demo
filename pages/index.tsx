@@ -25,7 +25,7 @@ Home.getInitialProps = async function() {
         for (var queryResult of results) {
             let resultString = JSON.stringify(queryResult)
             console.log(`\tQuery returned ${resultString}\n`);
-            return {name: queryResult.name};
+            return {name: queryResult};
         }
     }
     console.log("endpoint is not configured returning Unknown");
