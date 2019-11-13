@@ -35,6 +35,5 @@ jobs:
     #   with:
     #     app-name: 'hank-spa-test-win2'
 
-
     - name: az logout
       run: az logout
