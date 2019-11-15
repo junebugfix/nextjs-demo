@@ -32,7 +32,8 @@ jobs:
       #   with:
       #     app-name: 'hank-spa-test-win2'
 
-      run: echo ${{ github.event.pull_request.id }}
+      - name: test
+        run: echo ${{ github.event.pull_request.id }}
         
       # - name: az logout
       #   run: az logout
