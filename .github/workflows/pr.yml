@@ -31,7 +31,7 @@ jobs:
       - uses: azure/webapps-deploy@v1
         with:
           app-name: 'hank-spa-test-win2'
-          slot-name: 'hank-spa-test-win2-staging'
+          slot-name: 'staging'
         
       - name: az logout
         run: az logout
