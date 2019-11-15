@@ -1,6 +1,6 @@
 on:
   pull_request:
-    types: [opened, reopened, syncronize]
+    types: [opened, reopened, synchronize]
 
 name: Deploy to Staging Environment
 
