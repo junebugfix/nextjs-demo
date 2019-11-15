@@ -11,27 +11,28 @@ jobs:
       - name: 'Checkout Github Action'
         uses: actions/checkout@master
       
-      - name: Setup Node 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
+      # - name: Setup Node 12.x
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: '12.x'
         
-      - name: 'npm install and build'
-        run: |
-          npm install
-          npm run build --if-present
+      # - name: 'npm install and build'
+      #   run: |
+      #     npm install
+      #     npm run build --if-present
         
-      - uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS_STAGING }}
+      # - uses: azure/login@v1
+      #   with:
+      #     creds: ${{ secrets.AZURE_CREDENTIALS_STAGING }}
       
-      - name: Set App Service Secrets
-        run: az webapp config appsettings set -g hank-spa-test-win -n hank-spa-test-win2 -s staging --settings COSMOS_ENDPOINT=${{ secrets.COSMOS_ENDPOINT }} COSMOS_KEY=${{ secrets.COSMOS_KEY }} COSMOS_DATABASE=${{ secrets.COSMOS_DATABASE }} COSMOS_CONTAINER=${{ secrets.COSMOS_CONTAINER }}
+      # - name: Set App Service Secrets
+      #   run: az webapp config appsettings set -g hank-spa-test-win -n hank-spa-test-win2 -s staging --settings COSMOS_ENDPOINT=${{ secrets.COSMOS_ENDPOINT }} COSMOS_KEY=${{ secrets.COSMOS_KEY }} COSMOS_DATABASE=${{ secrets.COSMOS_DATABASE }} COSMOS_CONTAINER=${{ secrets.COSMOS_CONTAINER }}
 
-      - uses: azure/webapps-deploy@v1
-        with:
-          app-name: 'hank-spa-test-win2'
-          slot-name: 'staging'
+      # - uses: azure/webapps-deploy@v1
+      #   with:
+      #     app-name: 'hank-spa-test-win2'
+
+    - run: echo ${{ github.event.pull_request.id }}
         
-      - name: az logout
-        run: az logout
+      # - name: az logout
+      #   run: az logout
