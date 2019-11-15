@@ -1,4 +1,7 @@
-on: push
+on:
+  push:
+    branches:
+      - master
 
 name: Deploy to Azure App Service
 
@@ -10,10 +13,10 @@ jobs:
     - name: 'Checkout Github Action' 
       uses: actions/checkout@master
 
-    - name: Setup Node 10.x
+    - name: Setup Node 12.x
       uses: actions/setup-node@v1
       with:
-        node-version: '10.x'
+        node-version: '12.x'
     
     - name: 'npm install and build'
       run: |
