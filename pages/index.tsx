@@ -4,7 +4,7 @@ const CosmosClient = require('@azure/cosmos').CosmosClient;
 interface Props {
     name: string;
 }
-const Home = (props: Props) => <h1>Hello {props.name} from pr! </h1>;
+const Home = (props: Props) => <h1>Hello {props.name} from my pr! </h1>;
 
 Home.getInitialProps = async function() {
     console.log(config)
