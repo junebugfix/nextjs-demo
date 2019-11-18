@@ -1,0 +1,19 @@
+on:
+  pull_request:
+    types: [closed]
+
+name: Clean Up Staging Environment
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      
+      - name: Create Web App
+        run: az webapp delete -n hank-nextjs-pr${{ github.event.pull_request.number }} -g nextjs
+      
+      - name: az logout
+        run: az logout
