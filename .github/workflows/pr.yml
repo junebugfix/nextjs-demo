@@ -23,7 +23,7 @@ jobs:
         
       - uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS_STAGING }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
       
       - name: Create Web App
         run: az webapp create -n hank-nextjs-pr${{ github.event.pull_request.number }} -p ASP-hank-spa-test-win2-b40f -g hank-spa-test-win
