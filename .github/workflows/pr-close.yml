@@ -12,7 +12,7 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       
-      - name: Create Web App
+      - name: Delete Web App
         run: az webapp delete -n hank-nextjs-pr${{ github.event.pull_request.number }} -g nextjs
       
       - name: az logout
