@@ -4,10 +4,9 @@ const CosmosClient = require('@azure/cosmos').CosmosClient;
 interface Props {
     name: string;
 }
-const Home = (props: Props) => <h1>Hello {props.name}! </h1>;
+const Home = (props: Props) => <h1>Hello {props.name}!</h1>;
 
 Home.getInitialProps = async function() {
-    console.log(config)
     const {endpoint, key, database, container } = config;
 
     if(endpoint) {
@@ -23,9 +22,6 @@ Home.getInitialProps = async function() {
             .items.query(querySpec)
             .fetchAll()
         for (var queryResult of results) {
-            // let resultString = JSON.stringify(queryResult)
-            // console.log(`\tQuery returned ${resultString}\n`);
-            console.log(`Query result: ${queryResult}`);
             return {name: queryResult};
         }
     }
