@@ -27,7 +27,12 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Set App Service Secrets
-      run: az webapp config appsettings set -g nextjs -n hank-nextjs --settings COSMOS_ENDPOINT=${{ secrets.COSMOS_ENDPOINT }} COSMOS_KEY=${{ secrets.COSMOS_KEY }} COSMOS_DATABASE=${{ secrets.COSMOS_DATABASE }} COSMOS_CONTAINER=${{ secrets.COSMOS_CONTAINER }}
+      run: |
+        az webapp config appsettings set -g nextjs -n hank-nextjs --settings \
+        COSMOS_ENDPOINT=${{ secrets.COSMOS_ENDPOINT }} \
+        COSMOS_KEY=${{ secrets.COSMOS_KEY }} \
+        COSMOS_DATABASE=${{ secrets.COSMOS_DATABASE }} \
+        COSMOS_CONTAINER=${{ secrets.COSMOS_CONTAINER }}
     
     - uses: azure/webapps-deploy@v1
       with:
